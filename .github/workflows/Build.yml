@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://npm.pkg.github.com/
+      - name: Install clang
+        run: sudo apt-get -y install clang
+      - name: Install meson
+        run: |
+          mkdir -p ./third_party/mason
+          curl -sSfL https://github.com/mapbox/mason/archive/v0.19.0.tar.gz | tar --gunzip --extract --strip-components=1 --directory=./third_party/mason
+      - name: Build
+        run: CC='clang-10' CXX='clang++-10' npm install --build-from-source
+      - name: Package
+        run: ./node_modules/.bin/node-pre-gyp package
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
