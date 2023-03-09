@@ -4,6 +4,11 @@ on:
   release:
     types: [created]
 
+env:
+  node_pre_gyp_accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  node_pre_gyp_secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  node_pre_gyp_region: eu-central-1
+
 jobs:
   Build:
     runs-on: ubuntu-20.04
