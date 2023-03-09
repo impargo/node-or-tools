@@ -5,9 +5,9 @@ on:
     types: [created]
 
 env:
-  node_pre_gyp_accessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  node_pre_gyp_secretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  node_pre_gyp_region: eu-central-1
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: eu-central-1
 
 jobs:
   Build:
