@@ -36,7 +36,7 @@
   "binary": {
     "module_name": "node_or_tools",
     "module_path": "./lib/binding/",
-    "host": "https://mapbox-node-binary.s3.amazonaws.com",
+    "host": "https://impargo-node-or-tools-bins.s3.amazonaws.com",
     "remote_path": "./{name}/v{version}/{configuration}/",
     "package_name": "{node_abi}-{platform}-{arch}.tar.gz"
   }
