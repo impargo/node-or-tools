@@ -20,7 +20,7 @@ jobs:
           mkdir -p ./third_party/mason
           curl -sSfL https://github.com/mapbox/mason/archive/v0.19.0.tar.gz | tar --gunzip --extract --strip-components=1 --directory=./third_party/mason
       - name: Build
-        run: CC='clang-10' CXX='clang++-10' npm install --build-from-source
+        run: CC='clang' CXX='clang++' npm install --build-from-source
       - name: Package
         run: ./node_modules/.bin/node-pre-gyp package publish
       - run: npm publish
