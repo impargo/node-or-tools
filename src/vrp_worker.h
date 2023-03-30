@@ -122,7 +122,6 @@ struct VRPWorker final : Nan::AsyncWorker {
     model.AddDimension(durationCallback, timeHorizon, timeHorizon, /*fix_start_cumul_to_zero=*/true, kDimensionTime);
     const auto& timeDimension = model.GetDimensionOrDie(kDimensionTime);
 
-    /*
     for (std::int32_t node = 0; node < numNodes; ++node) {
       const auto timeWindowsForLocation = timeWindows->at(node);
       const auto numTimeWindowsForLocation = timeWindowsForLocation.size();
@@ -146,7 +145,6 @@ struct VRPWorker final : Nan::AsyncWorker {
         timeDimension.CumulVar(node)->RemoveInterval(lhs.stop, rhs.start);
       }
     }
-    */
 
     // Capacity Dimension
 
